@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        body {
+            font: normal 16px arial;
+        }
+
+        input {
+            padding: 30px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Números</h1>
+    <input type="button" value="Clique para calcular" onclick="clicar()">
+    <p id="res">O resultado vem aqui...</p>
+    <script>
+        window.alert('Seja bem-vindo(a) ao meu site!')   
+        function clicar() {
+            var txt1 = window.prompt('Digite um número: ')
+            var resul = document.getElementById('res')
+            var n1 = Number(txt1)
+            var dobro = n1 * 2
+            var metade = n1 / 2
+            resul.innerText = `O dobro de ${n1} é ${dobro} e a metade é ${metade}!`
+        }
+    </script>
+</body>
+</html>

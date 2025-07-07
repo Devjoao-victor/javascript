@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados com JS</title>
+    <style>
+        body {
+            font: normal 16px arial;
+        }
+
+        input {
+            padding: 30px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Dados v2.0</h1>
+    <input type="button" value="Clique para começar" onclick="clicar()">
+    <p id="res">Aqui vai aparecer o resultado...</p>
+    <script>
+        function clicar() {
+            var nome = window.prompt('Qual seu nome?')
+            var txt = window.document.getElementById('res')
+            txt.innerHTML = `Olá, <strong>${nome}! </strong> É  um grande prazer te conhecer &#x1F44B`
+        }
+    </script>
+</body>
+</html>

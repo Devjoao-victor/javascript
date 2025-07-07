@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: normal 16px arial;
+        }
+
+        input {
+            padding: 30px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando dois números</h1>
+    <input type="button" value="Iniciar a soma" onclick="clicar()">
+    <p id="res">o resultado vem aqui..</p>
+    <script>
+        function clicar() {
+            var txt1 = window.prompt('Digite um número: ')
+            var txt2 = window.prompt('digite outro número: ')
+            var resul = window.document.getElementById('res')
+            var n1 = Number(txt1)
+            var n2 = Number(txt2)
+            var s = n1 + n2
+            resul.innerHTML = `A soma entre <mark>${n1}</mark> e <mark>${n2}</mark> é igual a <strong>${s}</strong>!`
+        }
+    </script>
+</body>
+</html>
