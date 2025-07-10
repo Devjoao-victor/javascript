@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        body {
+            font: normal 20px arial;
+        }
+
+        input {
+            padding: 30px;
+        }
+
+        strong {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média do aluno v2.0</h1>
+    <input type="button" value="Calcular média" onclick="calcular()">
+    <p id="res">O resultado vai aparecer aqui...</p>
+    <script>
+        function calcular() {
+            var nome = window.prompt('Qual é o nome do aluno?')
+            var txtnota = window.prompt(`Qual foi a primeira nota de ${nome}`)
+            var txtnota2 = window.prompt(`Além de ${txtnota}, qual foi a outra nota de ${nome}`)
+            var res = window.document.getElementById('res')
+            var nota1 = Number(txtnota)
+            var nota2 = Number(txtnota2)
+            var media = (nota1 + nota2) / 2
+            res.innerHTML = `<p> Calculando a média final de <mark>${nome}</mark> </p>`
+            res.innerHTML += `<p> As notas obtidas foram <mark>${nota1} e ${nota2}</mark`
+            res.innerHTML += `<p> A média final será <mark>${media}</mark> </p>`
+            if (media < 6) {
+                res.innerHTML += `<p> A mensagem que temos é: <strong>Estude um pouco mais!</strong> </p>`
+            } else {
+                res.innerHTML += `<p> A mensagem que temos é: <strong>Meus parabéns!<strong> </P>`
+            }
+        }
+    </script>
+</body>
+</html>
