@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Valor</title>
+    <style>
+        body {
+            font: normal 20px arial;
+        }
+
+        input {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maior Valor</h1>
+    <input type="button" value="Clique para começar" onclick="verificar()">
+    <p id="res">o resultado vai aparecer aqui...</p>
+    <script>
+        function verificar() {
+            var txtn1 = window.prompt('Digite um número: ')
+            var txtn2 = window.prompt('Digite um número: ')
+            var res = window.document.getElementById('res')
+            var n1 = Number(txtn1)
+            var n2 = Number(txtn2)
+            if (n1 == n2) {
+                res.innerHTML = `Analisando os valores <mark>${n1}</mark> e <mark>${n2}</mark> são <strong>IGUAIS</strong>`
+            } else if (n1 > n2) {
+                res.innerHTML = `Analisando os valores <mark>${n1}</mark> e <mark>${n2}</mark> O maior valor é <strong>${n1}</strong>`
+            } else {
+                res.innerHTML = `Analisando os valores <mark>${n1}</mark> e <mark>${n2}</mark> O maior valor é <strong>${n2}</strong>`
+            }
+
+        }
+    </script>
+</body>
+</html>
