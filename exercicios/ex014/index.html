@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interagindo com o sistema</title>
+    <style>
+        body {
+            font: normal 20px arial;
+        }
+
+        input {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>interagindo com o sistema</h1>
+    <input type="button" value="Clique em mim" onclick="clicar()">
+    <p id="res">Aqui vai aparecer algo...</p>
+    <script>
+        var res = window.document.getElementById('res')
+        var tempo = new Date()
+        var agora = tempo.getDate()
+            function clicar() {
+            alert(agora)
+            }
+    </script>
+</body>
+</html>
