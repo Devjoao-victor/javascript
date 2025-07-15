@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            font: normal 20px arial;
+        }
+
+        input {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contando de 1 a 10 (mostrando só os pares)</h1>
+    <input type="button" value="Contar de 1 a 10" onclick="contar()">
+    <p id="res">Aperte o botão para contar</p>
+    <script>
+        function contar() {
+            var res = window.document.getElementById('res')
+            var c = 1
+            res.innerHTML += '<h3> Números pares de 1 até 10 </h3>'
+            while (c <= 10) {
+                c++
+                if (c % 2 == 0) {
+                    res.innerHTML += `${c} &#x1F449`
+                }
+            } res.innerHTML += '&#x1F3C1'
+        }   
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contando de 1 a 10</title>
+    <style>
+        body {
+            font: normal 20px arial;
+        }
+
+        input {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contando de 1 a 10</h1>
+    <input type="button" value="Contar de 1 a 10" onclick="contar()">
+    <p id="contagem">aperte o botão acima para contar</p>
+</body>
+<script>
+    function contar() {
+        var res = window.document.getElementById('contagem')
+        var c = 1
+        res.innerHTML = ''
+        while (c <= 10) {
+            res.innerHTML += `${c} &#x1F449`
+            c++
+        }
+        res.innerHTML += '&#x1F3C1'
+        // emoji mao &#x1F449
+        // emoji bandeira &#x1F3C1
+    }
+</script>
+</html>
