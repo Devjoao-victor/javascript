@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            font: normal 17px arial;
+        }
+
+        input {
+            margin: 10px;
+            padding: 3px;
+        }
+
+        #butao {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contagem "inteligente"</h1>
+    <p>use qualquer valor nas caixas, simule contagens crescentes e regressivas. Use também valores negativos.</p>
+    <label for="txtcomeco">Valor final:</label>
+    <input type="number" name="txtnum" id="txtcomeco" placeholder="Início da contagem">
+    <br>
+    <label for="txtfinal">Valor final:</label>
+    <input type="number" name="txtnum" id="txtfinal" placeholder="fim da contagem">
+    <br>
+    <input id="butao" type="button" value="Contar" onclick="contar()">
+    <p id="res">Preencha os dados acima e aperte o botão</p>
+    <script>
+        function contar() {
+            var res = window.document.getElementById('res')
+            var txtnum1 = window.document.getElementById('txtcomeco')
+            var txtnum2 = window.document.getElementById('txtfinal')
+            var comeco = Number(txtnum1.value)
+            var final = Number(txtnum2.value)
+            res.innerHTML += `<h3>Contando de ${comeco} ate ${final}<h3>`
+            for(c = comeco ; c <= final ; c++) { 
+                res.innerHTML += `${c} &#x1F449`
+            } res.innerHTML += `&#x1F3C1` 
+        }
+    </script>
+</body>
+</html>

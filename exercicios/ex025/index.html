@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados de Formulário</title>
+    <style>
+        body {
+            font: normal 18px arial;
+        }
+
+        input {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contando de 0 até um número positivo qualquer</h1>
+    <p>Escolha o limite final para a contagem a partir do 0 (digite aprenas números positivos)</p>
+    <label for="txtnum">Valor final:</label>
+    <input type="number" name="txtnum" id="txtnum" placeholder="Apenas positivos">
+    <input id="butao" type="button" value="Contar" onclick="contar()">
+    <p id="res">Preencha os dados acima e aperte o botão.</p>
+    <script>
+        function contar() {
+            var txtnum = window.document.getElementById('txtnum')
+            var num = Number(txtnum.value)
+            var res = window.document.getElementById('res')
+            res.innerHTML += `<h3>contando de 0 até ${num}</h3>`
+            for (c = 0 ; c <= num ; c++ ) {
+                res.innerHTML += `${c} &#x1F449`
+            } res.innerHTML += '&#x1F3C1'
+
+        }
+    </script>
+</body>
+</html>
