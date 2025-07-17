@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Contador</title>
+    <style>
+        body {
+            background-color: #4070c9;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: white;
+        }
+
+
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.342);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <main>
+        <section>
+            <div>
+                <p>
+                    <label for="txtinicio">Início:</label>
+                    <input type="number" name="txtinicio" id="txtinicio">
+                </p>
+                <p>
+                    <label for="txtfim">Fim:</label>
+                    <input type="number" name="txtfim" id="txtfim">
+                </p>
+                <p>
+                    <label for="txtpasso">Passo:</label>
+                    <input type="number" name="txtpasso" id="txtpasso">
+                </p>
+
+                <input type="button" value="Contar" onclick="contar()">
+            </div>
+            <div>
+                <p id="res">Preparando a contagem...</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        function contar() {
+            var txtinicio = window.document.getElementById('txtinicio')
+            var txtfim = window.document.getElementById('txtfim')
+            var txtpasso = window.document.getElementById('txtpasso')
+            var inicio = Number(txtinicio.value)
+            var fim = Number(txtfim.value)
+            var passo = Number(txtpasso.value)
+            var res = window.document.getElementById('res')
+            var c
+            res.innerHTML = ''
+            if (passo === 0) {
+                alert('[ERRO] O passo não pode ser 0')
+            } else if (inicio < fim ) {
+                for(c = inicio ; c <= fim ; c += passo) {
+                    res.innerHTML += `${c} &#x1F449` 
+                } 
+            } else {
+                for(c = inicio ; c >= fim ; c -= passo) {
+                    res.innerHTML += `${c} &#x1F449` 
+                } 
+            } 
+            res.innerHTML += '&#x1F3C1'
+
+        }
+    </script>
+</body>
+</html>
