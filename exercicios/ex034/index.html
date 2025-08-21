@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaforo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 97vh;
+        }
+
+        #img {
+            align-self: center;
+            margin-left: 110px;
+            height: 440px;
+            width: 200px;
+            background-repeat: no-repeat;
+            background-image: url(desligado.png);
+        }
+
+        input {
+            padding-right: 10px;
+            width: 100px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="img">
+
+        </div>
+        <div id="button">
+            <input type="button" value="Vermelho" onclick="vermelho()">
+            <input type="button" value="Amarelo" onclick="amarelo()">
+            <input type="button" value="Verde" onclick="verde()">
+            <input type="button" value="Automático" onclick="auto()">
+        </div>
+    </main>
+    <script>
+        const imagem = document.getElementById('img')
+
+        function vermelho() {
+            imagem.style.backgroundImage = 'url(vermelho.png)'
+        }
+
+        function amarelo() {
+          imagem.style.backgroundImage = 'url(amarelo.png)'  
+        }
+
+        function verde() {
+          imagem.style.backgroundImage = 'url(verde.png)'
+        }
+
+        function auto() {
+            
+        }
+
+
+    </script>
+</body>
+</html>

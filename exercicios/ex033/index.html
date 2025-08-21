@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lampada</title>
+    <style>
+        body {
+            height: 95vh;
+            width: 99vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        main {
+            height: 220px;
+            width: 170px;
+            background-repeat: no-repeat;
+            background-image: url(desligada.jpg);
+        }
+
+        main:hover {
+            background-image: url(ligada.jpg);
+        }
+
+        input {
+            width: 100px;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <main ondblclick="click2()" id="fundo" >
+
+    </main>
+    <footer>
+        <input type="button" value="Ligar" onclick="ligar()">
+        <input type="button" value="Desligar" onclick="desligar()">
+    </footer>
+    <script>
+         const lamp = document.getElementById('lamp');
+         const fundo = document.getElementById('fundo')
+
+        function isclick2() {
+            return lamp.src.indexOf ('quebrada') > -1
+        }
+
+        function click2() {
+            fundo.style.backgroundImage = 'url(quebrada.jpg)'
+        }
+
+        function ligar() {
+            if ( !click2()) {
+                fundo.style.backgroundImage = 'url(quebrada.jpg)'
+            } else {
+                fundo.style.backgroundImage = 'url(ligada.jpg)'                
+            }
+
+        }
+
+        function desligar() {
+            if ( !click2()) {
+                fundo.style.backgroundImage = 'url(quebrada.jpg)'
+            } else {
+                fundo.style.backgroundImage = 'url(desligada.jpg)'
+            }    
+        }
+    </script>
+</body>
+</html>
