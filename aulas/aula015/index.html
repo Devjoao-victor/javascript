@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="numeros" id="numeros" placeholder="digite numeros">
+    <input type="button" value="veja" id="butao" onclick="clico()">
+    <p id="res">Vai aparecer aqui</p>
+    <script>
+        const res = document.getElementById('res')
+        const nums = []
+
+        function clico() {
+        res.innerHTML = ''
+        const num = document.getElementById('numeros').value
+        nums.push(num)
+        res.innerHTML += nums
+        let maior = Math.max(...nums) //os pontos vao separar os numeros, pois a função math nao pode receber valores sem virgula ou ponto.
+        res.innerHTML += `<p> o maior numero digitado foi ${maior} <p>`
+        }
+    </script>
+</body>
+</html>
