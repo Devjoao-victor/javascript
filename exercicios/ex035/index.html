@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 91vh;
+            width: 99vw;
+            background-color: rgb(210, 173, 244);
+        }
+
+        main {
+            box-shadow: 4px 4px 4px rgba(107, 53, 158, 0.847);
+            border-radius: 5px;
+            padding: 30px;
+            background-color:   rgb(137, 109, 163) ;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: rgb(255, 255, 255);
+            font-family: Arial, Helvetica, sans-serif;
+            height: 170px;
+        }
+
+
+        input:focus {
+            color: rgb(23, 23, 23);
+            outline: none;
+        }
+
+        input {
+            width: 30px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            border-style: none;
+            height: 30px;
+            margin-left: 20px;
+        }
+        
+        p{
+            margin-left: 10px;
+            display: inline;
+        }
+
+        div {
+            padding-bottom: 20px;
+        }
+
+        #ano {
+            width: 40px;
+        }
+
+        #barra {
+            font-size: 15px;
+        }
+
+        #p1 {
+            margin-left: 12px;
+            padding-right: 34px;
+        }
+
+        #p3 {
+            padding-left: 46px;
+        }
+
+        button {
+            background-color: rgb(118, 71, 162);
+            margin: auto;
+            margin-bottom: 20px;
+            border-style: none;
+            display: block;
+            border-radius: 4px;
+            padding: 10px;
+            color: white;
+        }
+
+        button:hover {
+            background-color: rgb(75, 39, 108);
+            transition: 0.5s;
+        }
+
+        #resdiv {    
+            display: none;   
+            width: 150px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="draven"></div>
+    <main id="main">
+        <h1>Conversor de datas Americanas</h1>
+        <p id="p1">mês</p>
+        <p id="p2">dia</p>
+        <p id="p3">ano</p>
+        <div>
+        <input type="text" name="mes" id="mes" minlength="1" maxlength="2">
+        <p id="barra">/</p>
+        <input type="text" name="dia" id="dia" minlength="1" maxlength="2">
+        <p id="barra">/</p>
+        <input type="text" name="ano" id="ano" minlength="1" maxlength="4">
+        </div>
+        <button onclick="clicou()">Converter</button>
+        <div id="resdiv">
+            <p id="res"></p>
+        </div>
+    </main>
+    <script>
+        var horario = new Date()
+        var day = horario.getDate()
+        var month = horario.getMonth() + 1  
+        var year = horario.getFullYear()
+        function clicou() {
+            let mes = document.getElementById('mes').value
+            let dia = document.getElementById('dia').value
+            let ano = document.getElementById('ano').value
+            const res = document.getElementById('res')
+            const div = document.getElementById('resdiv')
+            const divprinc = document.getElementById('main')
+            if (mes.length === 0 || dia.length === 0 || ano.length === 0) {
+                alert('vc n digitou nada man')
+                resdiv.style.display = 'block'
+                divprinc.style.height = '220px'
+                res.innerHTML = `${day} / ${month} / ${year}`
+            } else if (mes > 12 || dia > 31 || ano > 2025) {
+                alert('coloca um dia ou um ano valido man')
+                resdiv.style.display = 'block'
+                divprinc.style.height = '220px'
+                res.innerHTML = `${day} / ${month} / ${year}`
+            } else if (mes <= 0 || dia <= 0 || ano <= 1000) {
+                alert('mes 0 e dia 0 nao existe, e so pode apartir do ano 1000')
+
+            } else {v.style.display = 'block'
+                divprinc.style.height = '220px'
+                alert('pode')
+                res.innerHTML = `${dia} / ${mes} / ${ano}`
+            }
+        }
+    </script>
+</body>
+</html>
