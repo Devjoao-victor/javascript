@@ -34,6 +34,7 @@
         }
 
         input {
+            border-radius: 3px;
             width: 30px;
             text-align: center;
             color: rgb(0, 0, 0);
@@ -89,6 +90,18 @@
             width: 150px;
             margin: auto;
         }
+
+        @media screen and (max-width: 582px) {
+            body {
+                background-color: rgb(137, 109, 163);
+                width: 97vw;
+            }
+
+            main {
+                box-shadow: 0px 0px 0px rgb(0, 0, 0) ;
+            }
+
+        }
     </style>
 </head>
 <body>
@@ -98,49 +111,70 @@
         <p id="p1">mês</p>
         <p id="p2">dia</p>
         <p id="p3">ano</p>
-        <div>
-        <input type="text" name="mes" id="mes" minlength="1" maxlength="2">
+        <div class="inputs">
+        <input type="text" name="mes" id="mes" minlength="1" maxlength="2" autocomplete="off" oninput="this.value = this.value.replace(/\D/g,'')"> 
         <p id="barra">/</p>
-        <input type="text" name="dia" id="dia" minlength="1" maxlength="2">
+        <input type="text" name="dia" id="dia" minlength="1" maxlength="2" autocomplete="off"oninput="this.value = this.value.replace(/\D/g,'')">
         <p id="barra">/</p>
-        <input type="text" name="ano" id="ano" minlength="1" maxlength="4">
+        <input type="text" name="ano" id="ano" minlength="1" maxlength="4" autocomplete="off"oninput="this.value = this.value.replace(/\D/g,'')">
         </div>
         <button onclick="clicou()">Converter</button>
         <div id="resdiv">
             <p id="res"></p>
+            
         </div>
+        <p id="error"></p>
     </main>
     <script>
-        var horario = new Date()
-        var day = horario.getDate()
-        var month = horario.getMonth() + 1  
-        var year = horario.getFullYear()
-        function clicou() {
-            let mes = document.getElementById('mes').value
-            let dia = document.getElementById('dia').value
-            let ano = document.getElementById('ano').value
-            const res = document.getElementById('res')
-            const div = document.getElementById('resdiv')
-            const divprinc = document.getElementById('main')
-            if (mes.length === 0 || dia.length === 0 || ano.length === 0) {
-                alert('vc n digitou nada man')
-                resdiv.style.display = 'block'
-                divprinc.style.height = '220px'
-                res.innerHTML = `${day} / ${month} / ${year}`
-            } else if (mes > 12 || dia > 31 || ano > 2025) {
-                alert('coloca um dia ou um ano valido man')
-                resdiv.style.display = 'block'
-                divprinc.style.height = '220px'
-                res.innerHTML = `${day} / ${month} / ${year}`
-            } else if (mes <= 0 || dia <= 0 || ano <= 1000) {
-                alert('mes 0 e dia 0 nao existe, e so pode apartir do ano 1000')
+var horario = new Date()
+var day = String(horario.getDate()).padStart(2, '0')      
+var month = String(horario.getMonth() + 1).padStart(2, '0')
+var year = horario.getFullYear()
 
-            } else {v.style.display = 'block'
-                divprinc.style.height = '220px'
-                alert('pode')
-                res.innerHTML = `${dia} / ${mes} / ${ano}`
-            }
-        }
+function clicou() {
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let ano = document.getElementById('ano').value
+
+    let mesNum = parseInt(mes)
+    let diaNum = parseInt(dia)
+    let anoNum = parseInt(ano)
+
+    const res = document.getElementById('res')
+    const erro = document.getElementById('error')
+    const div = document.getElementById('resdiv')
+    const divprinc = document.getElementById('main')
+
+    // Mostra div sempre que entrar na função
+    div.style.display = 'block'
+    divprinc.style.height = '220px'
+
+    if (mes.length === 0 || dia.length === 0 || ano.length === 0 ) {
+        erro.innerHTML = 'vc n digitou nada em algum espaço man! Pegando data atual'
+        erro.style.color = 'rgb(125, 0, 0)'
+        divprinc.style.height = '250px'
+        res.innerHTML = `${day} / ${month} / ${year}`
+    } else if (mesNum > 12 || diaNum > 31 || anoNum > 2025) {
+        erro.innerHTML = 'coloca um dia, mes ou um ano valido man! Pegando data atual'
+        erro.style.color = 'rgb(125, 0, 0)'
+        divprinc.style.height = '250px'
+        res.innerHTML = `${day} / ${month} / ${year}`
+    } else if (mesNum <= 0 || diaNum <= 0 || anoNum < 1000) {
+        erro.innerText = 'mes 0 ou dia 0 nao existe, e so pode apartir do ano 1000! Pegando data atual'
+        erro.style.color = 'rgb(125, 0, 0)'
+        divprinc.style.height = '250px'
+        res.innerHTML = `${day} / ${month} / ${year}`
+    } else {
+        erro.style.display = 'none'
+        let diaStr = String(diaNum).padStart(2, '0')
+        let mesStr = String(mesNum).padStart(2, '0')
+        res.innerHTML = `${diaStr} / ${mesStr} / ${anoNum}`
+    }
+
+    document.getElementById('ano').value = ''
+    document.getElementById('dia').value = ''
+    document.getElementById('mes').value = ''
+}
     </script>
 </body>
 </html>
