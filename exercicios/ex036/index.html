@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 inputs</title>
+    <style>
+        body {
+            height: 97vh;
+            width: 98vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(57, 57, 57);
+        }
+
+        #pai {
+            padding: 30px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width: 500px;
+            background-color: rgb(46, 46, 46); 
+            height: 200px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.258);
+            border-radius: 5px;
+        }
+
+        .filho {
+            padding: 30px;
+        }
+
+        input {
+            color: white;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(28, 28, 28, 0.135);
+            background-color: rgb(69, 69, 69) ;
+            border-style: none;
+            padding: 5px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        #res {
+            width: 170px;
+            background-color: rgb(69, 69, 69);
+            height: 25px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(28, 28, 28, 0.135);
+            text-align: left;
+        }
+
+        p {
+            overflow: hidden;
+            text-align: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="pai">
+        <div class="filho">
+            <p>Escreva Aqui</p>
+            <input type="text" onenter id="input1" maxlength="37">
+        </div>
+        <div class="filho">
+            <p>E Vai aparecer Aqui</p>
+            <p id="res"></p>
+        </div>
+    </div>
+    <script>
+        
+        let valor = "" // variável para guardar
+
+        document.getElementById("input1").addEventListener("input", function(e) {
+        valor = e.target.value
+        const res = document.getElementById('res')
+        res.innerText = valor
+        })
+    </script>
+</body>
+</html>
